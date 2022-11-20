@@ -4,26 +4,35 @@
 using namespace std;
 
 
-double area, l, w, r;
+double area;
+double l, w, r;
 
-void Area(char shape){
-    switch (shape)
-    {
-    case 'R': case 'r':
+
+void Area_Rectangle(double l, double w){
     cout << "Enter length: ";
     cin >> l;
     cout << "Enter width: ";
     cin >> w;
     area = l * w;
     cout << "The area of the rectangle is: " << area;
-        break;
-        
-    case 'C': case 'c':
+}
+
+
+void Area_Circle(double r){
     cout << "Enter radius: ";
     cin >> r;
     cout << "The area of the circle is: " <<  M_PI * pow(r , 2);
+}
+
+void Area(char shape){
+    switch (shape)
+    {
+    case 'R': case 'r':
+        Area_Rectangle(l, w);
         break;
-        
+    case 'C': case 'c':
+        Area_Circle(r);
+        break;
     default:
         cout << "Wrong Shape!";
         break;
@@ -39,6 +48,7 @@ int main(){
     cout << "Enter your choice: ";
     cin >> shape;
     Area(shape);
+
    return 0;
 
 }
